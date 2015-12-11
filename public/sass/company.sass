@@ -1,0 +1,128 @@
+@import "settings.sass"
+body
+  font-size: 12px
+  font-family: 'Open Sans',sans-serif
+.collaps
+  width: 40px
+.expand
+  width: 150px
+.header
+  height: 70px
+  background-color: $second-color
+  border: 1px solid $border-color
+  img
+    display: inline-block
+    height: 70px
+    vertical-align: middle
+  span
+    vertical-align: middle
+    display: inline-block
+    text-transform: uppercase
+.menu
+  margin-top: 20px
+  ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+    li
+      position: relative
+      text-align: center
+      color: #fff
+      background-color: $main-color
+      cursor: pointer
+      width: 65px
+      padding: 15px 0
+      transition: all .5s ease
+      display: inline-block
+      &:hover
+        background-color: $main-hover
+      i
+        font-size: 30px
+    .hint
+      position: absolute
+      padding: 14px
+      background-color: $main-color
+      width: 120px
+      color: #ffffff
+      font-size: 16px
+      display: inline-block
+      text-align: center
+      font-weight: bold
+      z-index: 100
+.stats
+  height: 500px
+  margin-top: 20px
+
+h4
+  margin: 0 !important
+  font-family: 'Open Sans',sans-serif
+  text-transform: uppercase
+.stock_part
+  position: relative
+  .stocks
+    height: 410px
+    overflow: auto
+  .stocks_head
+    h4
+      margin-top: 20px !important
+      margin-bottom: 10px !important
+      display: inline-block
+    span
+      cursor: pointer
+      margin-left: 20px
+      i
+        font-size: 12px
+        color: #000000
+        display: inline-block
+        margin-left: 3px
+    input
+      margin-bottom: 10px
+  .stock
+    height: 30vh
+    border: 1px solid $border-color
+    background-color: $second-color
+    margin: 0 10px 10px 10px
+    padding: 10px
+    padding-bottom: 0
+    position: relative
+    font-weight: bold
+    .img_wrapper
+      text-align: center
+      img
+        height: 17vh
+        cursor: pointer
+    .date_wrapper
+      position: absolute
+      bottom: 5px
+      right: 5px
+      font-size: 10px
+    i
+      position: absolute
+      top: 5px
+      right: 5px
+      font-size: 20px
+      color: $main-color
+      cursor: pointer
+    input
+      margin: 0 50px
+  a.down_arrow
+    i
+      position: absolute
+      bottom: -45px
+      right: 45%
+      cursor: pointer
+      font-size: 50px
+      color: $main-color
+#stock, #edit
+  display: none
+  text-align: center
+  h4
+    text-align: center
+    margin-bottom: 10px !important
+  input,textarea
+    margin-bottom: 10px !important
+
+.jspDrag, .jspTrack
+  width: 7px
+.jspVerticalBar
+  background: none !important

@@ -1,0 +1,23 @@
+{
+  "name": "advertShop",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Nikita Matrosov <matrosov.nikita94@yandex.ru>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "fancybox": "~2.1.5",
+    "Chart.js": "~1.0.2"
+  }
+}

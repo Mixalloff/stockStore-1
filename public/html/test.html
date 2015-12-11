@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body >
+
+<div ng-controller="DemoRet">
+
+    <p>{{title}}</p>
+    <input type="text" ng-model="query">
+
+    <ul>
+
+        <li ng-repeat="man in developers | filter:query">
+            {{man}}
+        </li>
+    </ul>
+
+</div>
+<script src="../libs/angular/angular.min.js"></script>
+<script src="../js/controller.js"></script>
+</body>
+</html>

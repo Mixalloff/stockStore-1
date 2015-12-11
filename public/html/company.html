@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Название компании</title>
+    <link rel="stylesheet" href="../css/company.css">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../libs/fancybox/source/jquery.fancybox.css">
+    <link rel="stylesheet" href="../libs/jScrollPane/style/jquery.jscrollpane.css">
+
+
+</head>
+<body ng-controller="Stock">
+<script>
+    $(function() {
+        $( "#dataPickerStart,#dataPickerEnd" ).datepicker();
+    });
+</script>
+<div class="container-fluid">
+  <div class="row">
+      <div class="header">
+        <div class="col-md-6">
+            <img src="../img/avatar_empty.jpg" alt="Brand">
+            <span>Название компании </span>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-1">
+            <div class="menu">
+                <ul>
+                    <a href="main.html"><li> <i class="fa fa-home"></i></li></a> <br>
+
+                    <li><i class="fa fa-file"></i></li> <br>
+
+                    <li><i class="fa fa-bar-chart"></i></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="stats">
+                <h4>Статистика</h4>
+                <canvas id="myChart" width="600" height="200"></canvas>
+                <canvas id="myChart2" width="600" height="200"></canvas>
+            </div>
+        </div>
+        <div class="col-md-5" >
+
+            <div class="stock_part" >
+            <div class="stocks_head">
+                <h4>Акции</h4>
+                <i class="fa" ng-class="{' fa-sort-alpha-desc': isDown('startDate'),
+                                           'fa-sort-alpha-asc': isUp('startDate')}"></i></span>
+                <span ng-click="sort('startDate')">
+                    Дата<i class="fa" ng-class="{'fa-chevron-down': isDown('startDate'),
+                                           'fa-chevron-up': isUp('startDate')}"></i></span>
+                <input type="text" class="form-control" placeholder="Поиск акции..." ng-model="stock_name">
+
+            </div>
+
+            <div class="stocks" >
+                <div   ng-repeat="stock in stocks | filter:{name:stock_name} | orderBy:sortField:reverse "
+                       class="stock {{stock.id}} "
+                      data-name={{stock.name}} data-description={{stock.description}} data-path={{stock.logo}}
+                      data-startDate={{stock.startDate}}  data-endDate={{stock.endDate}}
+                      data-id={{stock.id}}>
+                    <p class="stock_header">{{stock.name}}</p>
+                    <a class="edit_btn fancybox" href="#edit"  ng-click="update(stock.id)" title="Быстрое редактирование"> <i class="fa fa-pencil-square-o"></i></a>
+                    <div class="img_wrapper">
+                        <a href={{stock.logo}} class="fancybox" >
+                            <img ng-src={{stock.logo}} alt="STOCK_IMAGE" >
+                        </a>
+                    </div>
+                    <div class="date_wrapper">
+                        {{stock.startDate}} - {{stock.endDate}}
+                    </div>
+                </div>
+
+            </div>
+
+                <a href="#stock" class="down_arrow fancybox"><i class="fa fa-plus-circle "></i></a>
+        </div>
+        </div>
+
+        </div>
+    </div>
+
+<form id="stock">
+    <h4>Создание акции</h4>
+    <input type="text" class="form-control" name="name" placeholder="Заголовок">
+    <textarea name="description" id="description" cols="30" rows="7" class="form-control" placeholder="Текст акции"></textarea>
+    <input name="file" type="file" class="form-control">
+    <input name="startDate" type="text" id="dataPickerStart" placeholder="Дата начала" class="form-control">
+    <input name="endDate" type="text" id="dataPickerEnd" placeholder="Дата окончания" class="form-control">
+    <button type="submit" ng-click="add()" class="btn btn-primary">Добавить</button>
+</form>
+
+<form id="edit">
+    <h4>Редактирование акции</h4>
+    <input type="text" class="form-control" name="name" placeholder="Заголовок">
+    <textarea name="description" cols="30" rows="7" class="form-control" placeholder="Текст акции"></textarea>
+    <input name="file" type="file" class="form-control">
+    <input name="startDate" type="text"  placeholder="Дата начала" class="form-control">
+    <input name="endDate" type="text" placeholder="Дата окончания" class="form-control">
+    <button type="submit"  class="btn btn-primary">Сохранить</button>
+</form>
+
+
+<script src="../libs/Chart.js/Chart.js"></script>
+<script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../libs/fancybox/source/jquery.fancybox.js"></script>
+<script src="../libs/fancybox/source/jquery.fancybox.pack.js"></script>
+<script src="../libs/jScrollPane/script/jquery.jscrollpane.js"></script>
+<script src="../libs/jScrollPane/script/jquery.mousewheel.js"></script>
+<script src="../libs/angular/angular.min.js"></script>
+<script src="../js/cookie.js"></script>
+<script src="../js/controller.js"></script>
+<script src="../js/common.js"></script>
+</body>
+</html>
