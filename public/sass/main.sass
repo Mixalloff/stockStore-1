@@ -1,11 +1,60 @@
+@import "settings.sass"
 body
   font-size: 12px
   font-family: 'Open Sans',sans-serif
-.navbar
-  button
-    margin-right: 20px
 .hiden
   display: none
+header
+  height: 70px
+  background-color: $second-color
+  border: 1px solid $border-color
+  img
+    height: 70px
+    display: inline-block
+  span
+    font-size: 21px
+    margin-left: 10px
+.wrap_form,.info_tiles
+  border: 1px solid $border-color
+  height: 450px
+  margin-top: 40px
+  text-align: center
+  h3,h4
+    margin: 15px 0
+  button,a
+    display: block
+    margin: auto
+    width: 65%
+    padding-top: 10px
+    padding-bottom: 10px
+    margin-bottom: 10px
+    margin-top: 10px
+  input
+    width: 65%
+    margin: auto
+    margin-bottom: 10px
+    padding-top: 20px
+    padding-bottom: 20px
+  .tiles
+    .tile
+      border: 1px solid $border-color
+      height: 180px
+      margin-bottom: 10px
+      margin-right: 10px
+      margin-left: 10px
+      padding-top: 70px
+      font-size: 20px
+      cursor: pointer
+footer
+  text-align: center
+  font-size: 20px
+  height: 60px
+  background-color: $second-color
+  border: 1px solid $border-color
+  padding-top: 15px
+  position: absolute
+  bottom: 0
+  width: 100%
 form
   text-align: center
   .form-control
@@ -13,3 +62,5 @@ form
   label
     font-weight: normal
     float: left
+#signin
+  margin-top: 100px

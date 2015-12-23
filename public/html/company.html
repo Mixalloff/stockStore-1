@@ -5,30 +5,31 @@
     <title>Название компании</title>
     <link rel="stylesheet" href="../css/company.css">
 
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../libs/jquery-ui/themes/smoothness/jquery-ui.min.css">
+    <script src="../libs/jquery/dist/jquery.min.js"></script>
+    <script src="../libs/jquery-ui/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="../css/fonts.css">
+    <link rel="stylesheet" href="../css/font-awesome.css">
     <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../libs/fancybox/source/jquery.fancybox.css">
-    <link rel="stylesheet" href="../libs/jScrollPane/style/jquery.jscrollpane.css">
-
-
+    <link rel="stylesheet" href="../libs/alertify/alertify.min.css">
 </head>
 <body ng-controller="Stock">
 <script>
     $(function() {
-        $( "#dataPickerStart,#dataPickerEnd" ).datepicker();
+        $( ".date" ).datepicker();
     });
 </script>
 <div class="container-fluid">
   <div class="row">
       <div class="header">
         <div class="col-md-6">
-            <img src="../img/avatar_empty.jpg" alt="Brand">
-            <span>Название компании </span>
+            <img id="avatar" src="../img/avatar_empty.jpg" alt="Brand">
+            <span id="company_name">Название компании </span>
         </div>
+          <div class="col-md-6">
+              <button id="logout" class="btn btn-default">Выйти</button>
+          </div>
       </div>
   </div>
 </div>
@@ -72,18 +73,18 @@
             <div class="stocks" >
                 <div   ng-repeat="stock in stocks | filter:{name:stock_name} | orderBy:sortField:reverse "
                        class="stock {{stock.id}} "
+                       style="background: url(http://ec2-54-200-218-253.us-west-2.compute.amazonaws.com:8080{{stock.logo}})"
                       data-name={{stock.name}} data-description={{stock.description}} data-path={{stock.logo}}
                       data-startDate={{stock.startDate}}  data-endDate={{stock.endDate}}
                       data-id={{stock.id}}>
-                    <p class="stock_header">{{stock.name}}</p>
-                    <a class="edit_btn fancybox" href="#edit"  ng-click="update(stock.id)" title="Быстрое редактирование"> <i class="fa fa-pencil-square-o"></i></a>
-                    <div class="img_wrapper">
-                        <a href={{stock.logo}} class="fancybox" >
-                            <img ng-src={{stock.logo}} alt="STOCK_IMAGE" >
+                        <p class="stock_header">{{stock.name}}</p>
+                        <a class="edit_btn fancybox" href="#edit"  ng-click="update(stock.id)" title="Быстрое редактирование"> <i class="fa fa-pencil-square-o"></i></a>
+                        <a class="remove" ng-click="remove(stock.id)" title="Удаление акции">
+                        <i class="fa fa-times"></i>
                         </a>
-                    </div>
-                    <div class="date_wrapper">
-                        {{stock.startDate}} - {{stock.endDate}}
+                        <p class="stock_descr">{{stock.description}}</p>
+                        <div class="date_wrapper">
+                        {{stock.startDate | date:"dd.MM.yyyy"}} - {{stock.endDate | date:"dd.MM.yyyy"}}
                     </div>
                 </div>
 
@@ -96,23 +97,23 @@
         </div>
     </div>
 
-<form id="stock">
+<form ng-submit="add()" id="stock"  name="stock" enctype="multipart/form-data">
     <h4>Создание акции</h4>
     <input type="text" class="form-control" name="name" placeholder="Заголовок">
     <textarea name="description" id="description" cols="30" rows="7" class="form-control" placeholder="Текст акции"></textarea>
-    <input name="file" type="file" class="form-control">
-    <input name="startDate" type="text" id="dataPickerStart" placeholder="Дата начала" class="form-control">
-    <input name="endDate" type="text" id="dataPickerEnd" placeholder="Дата окончания" class="form-control">
-    <button type="submit" ng-click="add()" class="btn btn-primary">Добавить</button>
+    <input name="logo" type="file" class="form-control">
+    <input name="startDate" type="text" placeholder="Дата начала" class="form-control date">
+    <input name="endDate" type="text" placeholder="Дата окончания" class="form-control date">
+    <button type="submit"  class="btn btn-primary">Добавить</button>
 </form>
 
 <form id="edit">
     <h4>Редактирование акции</h4>
     <input type="text" class="form-control" name="name" placeholder="Заголовок">
     <textarea name="description" cols="30" rows="7" class="form-control" placeholder="Текст акции"></textarea>
-    <input name="file" type="file" class="form-control">
-    <input name="startDate" type="text"  placeholder="Дата начала" class="form-control">
-    <input name="endDate" type="text" placeholder="Дата окончания" class="form-control">
+    <input name="logo" type="file" class="form-control">
+    <input name="startDate" type="text"  placeholder="Дата начала" class="form-control date">
+    <input name="endDate" type="text" placeholder="Дата окончания" class="form-control date">
     <button type="submit"  class="btn btn-primary">Сохранить</button>
 </form>
 
@@ -121,11 +122,11 @@
 <script src="../libs/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="../libs/fancybox/source/jquery.fancybox.js"></script>
 <script src="../libs/fancybox/source/jquery.fancybox.pack.js"></script>
-<script src="../libs/jScrollPane/script/jquery.jscrollpane.js"></script>
-<script src="../libs/jScrollPane/script/jquery.mousewheel.js"></script>
 <script src="../libs/angular/angular.min.js"></script>
 <script src="../js/cookie.js"></script>
-<script src="../js/controller.js"></script>
-<script src="../js/common.js"></script>
+<script src="../js/config.js"></script>
+<script src="../js/controllers/company.js"></script>
+<script src="../libs/alertify/alertify.js"></script>
+<script src="../js/charts.js"></script>
 </body>
 </html>
