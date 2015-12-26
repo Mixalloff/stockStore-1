@@ -3,75 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <title>Главная</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
     <link rel="stylesheet" href="../libs/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../libs/fancybox/source/jquery.fancybox.css">
     <link rel="stylesheet" href="../css/fonts.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/font-awesome.css">
     <link rel="stylesheet" href="../libs/alertify/alertify.min.css">
+    <link rel="stylesheet" href="../css/media.css">
+
     <link rel="icon" type="image/ico" href="../favicon.ico"/>
 </head>
 <body>
 
-<div class="container-fluid">
-    <div class="row">
-        <header>
-            <div class="col-lg-6">
-                <img src="../img/logo.png" alt="LOGO">
-                <span>Проект StockStore</span>
-            </div>
-        </header>
-    </div>
-</div>
-<div class="container-fluid">
-    <div class="row">
-            <div class="col-lg-4">
-                <div class="wrap_form">
-                    <h4>Войдите или зарегистрируйтесь</h4>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="top_menu fixed">
+                <div class="col-md-3">
+                    <a href="main.html">
+                        <img src="../img/logo.png" alt="brand" class="logo">
+                        <span>Shappy</span>
+                    </a>
+                </div>
 
-                    <form id="signin">
-                    <input type="text" class="form-control" placeholder="Логин" name="login">
-                    <input type="password" class="form-control" placeholder="Пароль" name="password">
-                     <button class="btn btn-success" type="submit">Войти</button>
-                    <a href="#signup" class="btn btn-primary fancybox">Регистрация</a>
-                        <div id="spinner_login"></div>
-                    </form>
+
+
+                <div class="col-md-9 hidden-sm hidden-xs" >
+                    <nav class="menu" >
+                        <ul>
+                            <li class="active"><a href="">Главная</a></li>
+                            <li><a href="">Описание</a></li>
+                            <li><a href="">Возможности</a></li>
+                            <li><a href="">Отзывы</a></li>
+                            <li><a href="">Контакты</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <a href="#" class="toggle-mnu hidden-lg hidden-md"><span></span></a>
+
+            </div>
+            </div>
+        </div>
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="bottom_mnu">
+                        <h1>CRM-система акций и объявлений вашей компании</h1>
+                        <h3>Первый месяц использования абсолютно бесплатно</h3>
+                        <div class="col-md-8">
+                            <ul class="points">
+                                <li><i class="fa fa-check"></i>Создавай любое количество акций</li>
+                                <li><i class="fa fa-check"></i>Следи за статистикой клиентов</li>
+                                <li><i class="fa fa-check"></i>Получай ежедневный прирост клиентов</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <form id="signin">
+                                <h4>Войти в Shappy</h4>
+                                <input type="text"  placeholder="Логин" name="login" autofocus>
+                                <input type="password" placeholder="Пароль" name="password">
+                                <button class="button" type="submit">Войти</button>
+                                <button href="#signup" class="button fancybox" >Регистрация</button>
+                                <div id="spinner_login"></div>
+                            </form>
+                        </div>
+
                 </div>
             </div>
-            <div class="col-lg-8">
-                <div class="info_tiles">
-                    <h3>Ознакомьтесь с нашим продуктом</h3>
-                    <div class="row">
-                        <div class="tiles">
-                            <div class="col-lg-4">
-                                <div class="tile fancybox" href="#signup">Регистрация</div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="tile">О проекте</div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="tile">Сервисы</div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="tile">Возможности</div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="tile">Тарифы</div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="tile">Контакты</div>
-                            </div>
+        </div>
+        <i class="fa fa-angle-down"></i>
+    </header>
+
+    <section class="advantages">
+        <div class="container">
+            <div class="row">
+                    <h2>Почему нужно использовать нашу систему?</h2>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div class="item">
+                        <i class="fa fa-bar-chart"></i>
+
+                            <h3>Полная статистика</h3>
+                            <p>Возможность просматривать статистику по использованию акций и объявлений клиентами</p>
                         </div>
                     </div>
+
+                <div class="col-md-6 col-sm-6 col-xs-12 ">
+                    <div class="item">
+                        <i class="fa fa-mobile"></i>
+
+                        <h3>Мобильное приложение</h3>
+                        Клиенты используют приложения, добавляют акции в себе профиль и подписываются на новости компании
+                        <p></p>
+                    </div>
                 </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 ">
+                        <div class="item">
+                        <i class="fa fa-users"></i>
+
+                            <h3>Рост клиентской базы</h3>
+                            <p>Друзья могут обмениваться информацией об использовании акций </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 ">
+                        <div class="item">
+                            <i class="fa fa-clipboard"></i>
+                            <h3>Управление акциями и объявлениями</h3>
+                            <p>Создание, редактирование акиций и объявлений</p>
+                        </div>
+                    </div>
             </div>
-    </div>
-</div>
+        </div>
+    </section>
+    <hr>
 
-        <footer>
-            Месяц использования абсолютно бесплатно!
-        </footer>
-
-<form id ="signup" class="hiden" enctype="multipart/form-data">
+<form id ="signup" style = "display: none" enctype="multipart/form-data">
     <h4>Регистрация компании</h4>
     <input type="text" class="form-control" placeholder="Логин" name="login" required>
     <input type="password" class="form-control" placeholder="Пароль" name="password"required>
@@ -85,11 +137,9 @@
     </select>
     <input type="text" class="form-control" placeholder="Регион" >
     <input type="text" class="form-control" placeholder="Адрес" >
-    <label><input type="checkbox" value=""> Агрегатор</label>
     <input type="file" name="logo" class="form-control" multiple>
-    <button type="submit" class="btn btn-primary" >Зарегистрировать</button>
+    <button type="submit" class="button">Зарегистрировать</button>
     <div id="spinner_register"></div>
-
 </form>
 
 <script src="../libs/jquery/dist/jquery.js"></script>

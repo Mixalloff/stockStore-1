@@ -18,7 +18,9 @@ gulp.task('connect', function() {
 //css
 gulp.task('sass', function() {
     return gulp.src('./public/sass/*.sass')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({
+            includePaths: require('node-bourbon').includePaths
+         }).on('error', sass.logError))
         .pipe(minifyCss())
         .pipe(autoprefixer({
             browsers: ['last 15 versions'],

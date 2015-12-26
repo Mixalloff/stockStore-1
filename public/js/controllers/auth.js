@@ -69,5 +69,11 @@ $(document).ready(function () {
     //показ pop-up форм
     $(".fancybox").fancybox();
 
+    $(".toggle-mnu").click(function() {
+        $(this).toggleClass("on");
+        $(".main-mnu").slideToggle();
+        return false;
+    });
+
 
 });

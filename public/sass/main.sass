@@ -1,66 +1,209 @@
 @import "settings.sass"
 body
-  font-size: 12px
   font-family: 'Open Sans',sans-serif
-.hiden
-  display: none
-header
-  height: 70px
-  background-color: $second-color
-  border: 1px solid $border-color
-  img
-    height: 70px
-    display: inline-block
-  span
-    font-size: 21px
-    margin-left: 10px
-.wrap_form,.info_tiles
-  border: 1px solid $border-color
-  height: 450px
-  margin-top: 40px
-  text-align: center
-  h3,h4
-    margin: 15px 0
-  button,a
-    display: block
-    margin: auto
-    width: 65%
-    padding-top: 10px
-    padding-bottom: 10px
-    margin-bottom: 10px
-    margin-top: 10px
-  input
-    width: 65%
-    margin: auto
-    margin-bottom: 10px
-    padding-top: 20px
-    padding-bottom: 20px
-  .tiles
-    .tile
-      border: 1px solid $border-color
-      height: 180px
-      margin-bottom: 10px
-      margin-right: 10px
-      margin-left: 10px
-      padding-top: 70px
-      font-size: 20px
-      cursor: pointer
-footer
-  text-align: center
-  font-size: 20px
-  height: 60px
-  background-color: $second-color
-  border: 1px solid $border-color
-  padding-top: 15px
-  position: absolute
-  bottom: 0
+  min-width: 320px
+  position: relative
+  line-height: 1.6
+  font-size: 16px
+
+.top_menu
+  height: 13vh
+  background-color: #000000
+  position: fixed
   width: 100%
+  z-index: 100
+  a
+    img
+      height: 90px
+      max-width: 50%
+    span
+      font-size: 25px
+      display: inline-block
+      margin-left: 10px
+      text-decoration: none
+      color: #ffffff
+      font-weight: bold
+      letter-spacing: 1px
+header
+  height: 100vh
+  background: linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url("../img/bgc2.jpg")
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: top center
+  position: relative
+  i.fa-angle-down
+    position: absolute
+    left: 50%
+    bottom: 15px
+    font-size: 35px
+    color: #ffffff
+    border-radius: 50%
+    border: 1px solid #fff
+    padding: 5px 10px
+    cursor: pointer
+
+  .bottom_mnu
+    padding-top: 15vh
+    h1
+      color: #fff
+      font-weight: bold
+      text-transform: uppercase
+      font-weight: normal
+      text-align: center
+      line-height: 1.5
+    h3
+      color: #fff
+nav,.bottom_mnu
+  text-align: center
+  ul
+    list-style-type: none
+    padding: 0
+    margin: 0
+    li
+      display: inline-block
+      a
+        color: #ffffff
+        line-height: 90px
+        padding: 0 35px
+        +mt(.3s)
+        text-transform: uppercase
+        letter-spacing: 2px
+        font-size: 12px
+        &:hover
+          text-decoration: none
+    li.active
+      a
+        color: rgb(51, 122, 183)
+
+.bottom_mnu
+  position: relative
+  ul
+    text-align: left
+    margin-top: 65px
+    color: #ffffff
+    li
+      display: block
+      line-height: 2
+      font-size: 20px
+      i
+        margin-right: 10px
+
+
+.button_wrapper
+  text-align: center
+  padding-top: 25px
+.button
+  padding: 10px 50px
+  border: none
+  background-color: #18CB65
+  color: #ffffff
+  text-transform: uppercase
+  font-size: 12px
+  border-bottom: 2px solid #fff9e5
+  font-weight: bold
+  letter-spacing: 2px
+  +mt(.3s)
+  &:hover
+    background-color: $btn
+  &:active
+    background-color: #0E9C4B
+    border-bottom: 2px solid #0E9C4B
+    transform: translateY(3px)
+    outline: none
+
+input,select
+  display: block
+  width: 100%
+  margin-bottom: 10px
+  text-indent: 10px
+  padding: 8px 0
+  &:focus
+    border: 2px solid $btn
+    outline: none
 form
   text-align: center
-  .form-control
-    margin-bottom: 10px
-  label
-    font-weight: normal
-    float: left
+  padding: 20px 30px
+  background-color: rgba(255,255,255,.6)
+  h4
+    text-transform: uppercase
+    letter-spacing: 2px
+  button
+    width: 70%
+    margin-bottom: 5px
+button[href='#signup'], #signup button
+  background-color: #3D6EFF
+  &:hover
+    background-color: #0f43ff
+  &:active
+    background-color: #0f43ff
+    border-bottom: 2px solid #0f43ff
+    transform: translateY(3px)
+    outline: none
 #signin
-  margin-top: 100px
+  margin-top: 40px
+#signup
+  button
+    width: 100%
+
+.toggle-mnu
+  position: absolute
+  top: 0
+  right: 20px
+  display: block
+  width: 28px
+  height: 28px
+  margin-top: 14px
+
+  span:after, span:before
+    content: ""
+    position: absolute
+    left: 0
+    top: 9px
+  span:after
+    top: 18px
+  span
+    position: relative
+    display: block
+  span, span:after, span:before
+    width: 100%
+    height: 2px
+    background-color: #fff
+    +mt(0.3s)
+    backface-visibility: hidden
+    border-radius: 2px
+  &.on span
+    background-color: transparent
+  &.on span:before
+    transform: rotate(45deg) translate(-1px, 0px)
+  &.on span:after
+    transform: rotate(-45deg) translate(6px, -7px)
+section
+  padding-top: 40px
+  padding-bottom: 10px
+.advantages
+  h2
+    text-align: center
+    margin-bottom: 40px
+  .item
+    text-align: center
+    margin-bottom: 60px
+    i
+      font-size: 40px
+      color: #4078c0
+      border: 1px solid #ccc
+      border-radius: 50%
+      padding: 30px
+      cursor: pointer
+      &.fa-mobile
+        padding-left: 40px
+        padding-right: 40px
+
+
+
+
+
+
+
+
+
+
